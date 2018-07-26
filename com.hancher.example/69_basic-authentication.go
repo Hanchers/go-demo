@@ -54,7 +54,7 @@ func wrapAuth(h http.HandlerFunc, a Auth) http.HandlerFunc {
 }
 
 //权限通过返回值
-func hello68(w http.ResponseWriter, r *http.Request) {
+func hello69(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintln(w, "Hello secret world!")
 }
 
@@ -66,7 +66,7 @@ func main() {
         return password == "supersecret"
     }
 
-    handler1 := http.HandlerFunc(hello68)
+    handler1 := http.HandlerFunc(hello69)
     handler2 := wrapAuth(handler1, checkPassword)
     http.ListenAndServe(":5000", handler2)
 }
