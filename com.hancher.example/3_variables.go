@@ -6,10 +6,11 @@ import "fmt"
 func main() {
 
 	//显式声明一个变量
-	var a string = "initial"
+	var a  = 'a' ;
 	//此处会报错： cannot use 111 (type int) as type string in assignment
 	// a = 111
 	fmt.Println(a)
+	//fmt.Println(s)
 
 	//你可以申明一次性声明多个变量。
 	var b, c int = 1, 2
