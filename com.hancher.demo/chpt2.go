@@ -10,19 +10,30 @@ func plus (a int,b int) int  {
 type person struct {
 	name string
 }
-
+//function
 func hello(user string) {
 	fmt.Println(user+" say： hello world!")
 }
 
-func (p person) hello(user string){
-	fmt.Println(user+" say:hello "+p.name)
+//method
+func (p person) hello(user string)  {
+	s:=user+" say:hello "+p.name
+	fmt.Println(s)
+	//return s
+}
+func  (p person) hello2(user string) string  {
+	s:=user+" say:hello "+p.name
+	fmt.Println(s)
+	return s
 }
 
 type SayHello interface {
 	hello(name string)
+	//hello2(a string) string
 }
-
+func toSayHello(sayHello SayHello,user string)  {
+	sayHello.hello(user)
+}
 
 func main() {
 	// function
@@ -32,19 +43,18 @@ func main() {
 	// function and method
 	hello("function")
 	p := person{"Hancher"}
-	p.hello("method")
+	p.hello("method1")
 
 	//interface
-	toSayHello(p,"method")
+	toSayHello(p,"method2")
 
 	//chan
-	msg := make(chan string)
+	//var msg1 chan string;
+	//msg1=make(chan  string)
+	msg:= make(chan string)
 	go func() {msg<-"chan"}()
 	user:= <-msg
 	hello(user)
 	p.hello(user)
 }
 
-func toSayHello(sayHello SayHello,user string)  {
-	sayHello.hello(user)
-}
