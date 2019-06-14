@@ -41,4 +41,12 @@ func main() {
 	ansic := "Mon Jan _2 15:04:05 2006"
 	_, e = time.Parse(ansic, "8:41PM")
 	p(e)
+
+	t3, e := time.Parse("15:04:05","21:12:41")
+	p(t3)
+
+	t4 := time.Date(t.Year(),t.Month(),t.Day(),t.Hour(),t.Minute(),t.Second(), 500000000,time.Local)
+	p(t4)
+	p(t.After(t4))
+
 }

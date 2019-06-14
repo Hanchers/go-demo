@@ -50,4 +50,6 @@ func main() {
 	// 用一个 `-` 来将时间前移一个时间间隔。
 	p(then.Add(diff))
 	p(then.Add(-diff))
+
+	p(now.Clock())
 }
